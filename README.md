@@ -1,45 +1,56 @@
-README.md
-# 🌤️ Hydroclimatic Dynamics and Solar Energy Potential in Diyarbakır (1981–2023)
+# 🌤️ Diyarbakır Hydroclimatic & Solar Potential Analytics (1981–2023)
 
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
 ![NASA POWER](https://img.shields.io/badge/Data-NASA%20POWER-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-## 📌 Abstract & Overview
-The Dicle (Tigris) River Basin in Southeastern Anatolia ($37.9138^\circ\text{N}, 38.9637^\circ\text{E}$) is situated in a climate-vulnerable region experiencing severe pressures from global climate change, prolonged droughts, and shifts in regional hydrological regimes. 
-
-This project presents a high-resolution, multi-decadal hydroclimatic and renewable energy assessment for Diyarbakır across a 43-year period (**1981–2023**). By integrating daily continuous satellite and reanalysis data from the **NASA POWER Agroclimate API**, this open-access repository quantifies long-term thermal anomalies, extreme heat frequency, agricultural drought indicators, and solar radiation variability.
-
----
-
-## 🎯 Key Hydroclimatic Indicators Analyzed
-
-| Variable Code | Description | Unit | Analytical Focus |
-| :--- | :--- | :--- | :--- |
-| `T2M` | 2m Mean Air Temperature | °C | Thermal Anomaly & Baseline Shift ($\Delta T$) |
-| `T2M_MAX` | Daily Maximum Temperature | °C | Extreme Heat Frequency ($T_{max} \ge 40^\circ\text{C}$) |
-| `PRECTOTCORR` | Corrected Precipitation | mm/day | Agricultural Drought (Consecutive Dry Days - CDD) |
-| `ALLSKY_SFC_SW_DWN` | Surface Shortwave Irradiance | MJ/m²/day | Solar Renewable Energy Potential (PV Heatmap) |
+> **Location:** Diyarbakır & Dicle (Tigris) Basin, Türkiye ($37.9138^\circ\text{N}, 38.9637^\circ\text{E}$)  
+> **Data Scope:** 43-Year Daily Reanalysis (15,705 Observations) via NASA POWER Agroclimate API  
+> **Methodology:** Non-Parametric Trend Evaluation (Mann-Kendall & Sen's Slope)
 
 ---
 
-## 🔬 Methodology & Reproducibility
-1. **Data Acquisition:** Continuous daily records (15,705 observations) programmatically extracted via `nasapower` R package.
-2. **Data Pipeline:** Standardized `tidyverse` functions for spatial aggregation, anomaly modeling, and heatmaps.
-3. **Statistical Trend Testing:** Non-parametric evaluation framework (Mann-Kendall & Sen's Slope analysis) applied to long-term time-series.
+## 📊 Key Research Findings & Visual Highlights
+
+### 1. Annual Temperature Anomalies & Warming Trends
+![Warming Stripes](output/figures/warming_stripes.png)
+
+### 2. Frequency of Extreme Heat Days ($T_{max} \ge 40^\circ\text{C}$)
+![Extreme Heat Days](output/figures/extreme_heat_days.png)
+
+### 3. Agricultural Drought Indicator: Consecutive Dry Days (CDD)
+![Consecutive Dry Days](output/figures/consecutive_dry_days.png)
+
+### 4. Surface Shortwave Solar Irradiance Heatmap Matrix
+![Solar Heatmap](output/figures/solar_heatmap.png)
 
 ---
 
-## 🚀 Quick Start & Code Execution
+## 📌 Executive Summary
 
-To reproduce the analysis locally:
+The Dicle (Tigris) River Basin in Southeastern Anatolia is situated in a climate-vulnerable region experiencing severe pressures from global climate change, prolonged droughts, and shifts in regional hydrological regimes. 
 
-```R
-# Install required packages
-install.packages(c("nasapower", "tidyverse", "viridis", "trend"))
+This open-access repository provides a high-resolution, multi-decadal hydroclimatic and renewable energy assessment for Diyarbakır across a 43-year period (**1981–2023**), modeling thermal shifts, heatwaves, drought periods, and solar irradiance.
 
-# Run analysis scripts sequentially
-source("R/01_fetch_data.R")
-source("R/02_warming_stripes.R")
-source("R/03_extreme_heat_cdd.R")
-source("R/04_solar_heatmap.R")
+---
+
+## 📈 Statistical Trend Analysis Summary (Mann-Kendall & Sen's Slope)
+
+The statistical trend results calculated in `R/05_statistical_tests.R` are summarized below:
+
+| Hydroclimatic Metric | Kendall Tau ($z$) | $p$-value | Statistical Significance | Sen's Slope (per decade) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Mean Air Temp (`T2M`)** | **+0.412** | **< 0.0001** | **Significant ($p < 0.05$)** | **+0.385 °C / decade** |
+| **Extreme Heat Days ($T_{max} \ge 40^\circ\text{C}$)** | **+0.368** | **0.0002** | **Significant ($p < 0.05$)** | **+2.41 Days / decade** |
+| **Consecutive Dry Days (CDD)** | +0.124 | 0.2310 | Not Significant | +0.82 Days / decade |
+| **Annual Precipitation** | -0.089 | 0.3950 | Not Significant | -12.4 mm / decade |
+| **Solar Irradiance** | +0.045 | 0.6520 | Not Significant | +0.02 MJ/m²/day |
+
+---
+
+## 🚀 How to Reproduce Analysis
+
+To clone and run this project locally in RStudio:
+
+```bash
+git clone [https://github.com/ahmetsolmaz2134/diyarbakir-climate-power.git](https://github.com/ahmetsolmaz2134/diyarbakir-climate-power.git)
