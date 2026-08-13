@@ -10,20 +10,29 @@
 
 ---
 
+## # 🌤️ Diyarbakır Hydroclimatic & Solar Potential Analytics (1981–2023)
+
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+![NASA POWER](https://img.shields.io/badge/Data-NASA%20POWER-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+---
+
 ## 📊 Key Research Findings & Visual Highlights
 
 ### 1. Annual Temperature Anomalies & Warming Trends
-![Warming Stripes](output/figures/warming_stripes.png)
+![Warming Stripes](ısınma_şeritleri.png)
 
 ### 2. Frequency of Extreme Heat Days ($T_{max} \ge 40^\circ\text{C}$)
-![Extreme Heat Days](output/figures/extreme_heat_days.png)
+![Extreme Heat Days](aşırı_sıcak_günler.png)
 
 ### 3. Agricultural Drought Indicator: Consecutive Dry Days (CDD)
-![Consecutive Dry Days](output/figures/consecutive_dry_days.png)
+![Consecutive Dry Days](consecutive_dry_days.png)
 
 ### 4. Surface Shortwave Solar Irradiance Heatmap Matrix
-![Solar Heatmap](output/figures/solar_heatmap.png)
+![Solar Heatmap](güneş_ısı_haritası.png)
 
+---
 ---
 
 ## 📌 Executive Summary
